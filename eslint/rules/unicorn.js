@@ -4,7 +4,7 @@
 const config = {
   plugins: ["unicorn"],
   rules: {
-    "unicorn/filename-case": ["error", { case: "kebabCase" }],
+    "unicorn/filename-case": ["error", { cases: ["kebabCase", "pascalCase", "camelCase"] }],
   },
 };
 
