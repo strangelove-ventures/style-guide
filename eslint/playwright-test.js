@@ -2,9 +2,7 @@
 
 /** @type {import("eslint").Linter.Config} */
 const config = {
-  rules: {
-    "@typescript-eslint/no-unused-vars": ["off"],
-  },
+  extends: ["plugin:playwright/playwright-test", require.resolve("./rules/playwright-test.js")],
 };
 
 module.exports = config;

@@ -24,8 +24,13 @@ npm install --save-dev @strangelovelabs/style-guide
 yarn add --dev @strangelovelabs/style-guide
 
 # using pnpm
-pnpm add --dev @strangelovelabs/style-guide
+pnpm install --save-dev @strangelovelabs/style-guide
 ```
+
+Some of our ESLint configs require peer dependencies. We'll note those
+alongside the available configs in the [ESLint](#eslint) section.
+
+If you're not working with frontend related projects (React, Next.js, TailwindCSS), you can install [`@strangelovelabs/style-guide-core`](https://npm.im/@strangelovelabs/style-guide-core) which [does not include packages listed here](./scripts/trim-core.js).
 
 ## Prettier
 
@@ -49,17 +54,25 @@ To use the shared Prettier config, set the following in `package.json`.
 >
 > See: https://eslint.org/docs/user-guide/getting-started#installation-and-usage
 
-This ESLint config is designed to be composable. The base configs,
-`@strangelovelabs/style-guide/eslint/node` or `@strangelovelabs/style-guide/eslint/browser`, set
-up a project for JavaScript and should always be first in `extends`.
+This ESLint config is designed to be composable.
 
-The following optional configs are available:
+The following base configs are available. You can use one or both of these
+configs, but they should always be first in `extends`:
 
-- `@strangelovelabs/style-guide/eslint/jest` (requires installing [`eslint-plugin-jest`](https://www.npmjs.com/package/eslint-plugin-jest) and [`eslint-plugin-testing-library`](https://www.npmjs.com/package/eslint-plugin-testing-library))
-- `@strangelovelabs/style-guide/eslint/next` (requires `@strangelovelabs/style-guide/eslint/react`)
+- `@strangelovelabs/style-guide/eslint/browser`
+- `@strangelovelabs/style-guide/eslint/node`
+
+Note that you can scope configs, so that configs only target specific files.
+For more information, see: [Scoped configuration with `overrides`](#scoped-configuration-with-overrides).
+
+The following additional configs are available:
+
+- `@strangelovelabs/style-guide/eslint/jest` (requires [`eslint-plugin-jest`](https://npm.im/eslint-plugin-jest) and [`eslint-plugin-testing-library`](https://npm.im/eslint-plugin-testing-library) to be installed)
+- `@strangelovelabs/style-guide/eslint/next` (requires `@next/eslint-plugin-next` to be installed at the same version as `next`)
+- `@strangelovelabs/style-guide/eslint/playwright-test` (requires [`eslint-plugin-playwright`](https://npm.im/eslint-plugin-playwright) to be installed)
 - `@strangelovelabs/style-guide/eslint/react`
-- `@strangelovelabs/style-guide/eslint/tailwindcss` (requires installing [`eslint-plugin-tailwindcss`](https://www.npmjs.com/package/eslint-plugin-tailwindcss))
-- `@strangelovelabs/style-guide/eslint/typescript` (requires [additional configuration](#configuring-eslint-for-typescript))
+- `@strangelovelabs/style-guide/eslint/tailwindcss` (requires [`tailwindcss`](https://npm.im/tailwindcss) to be installed)
+- `@strangelovelabs/style-guide/eslint/typescript` (requires [`typescript`](https://npm.im/typescript) to be installed and [additional configuration](#configuring-eslint-for-typescript))
 
 > You'll need to use `require.resolve` to provide ESLint with absolute paths,
 > due to an issue around ESLint config resolution (see
@@ -109,6 +122,33 @@ module.exports = {
 };
 ```
 
+### Configuring custom components for `jsx-a11y`
+
+It's common practice for React apps to have shared components like `Button`,
+which wrap native elements. You can pass this information along to `jsx-a11y`
+via the `components` setting.
+
+The below list is not exhaustive.
+
+```js
+module.exports = {
+  root: true,
+  extends: [require.resolve("@vercel/style-guide/eslint/react")],
+  settings: {
+    "jsx-a11y": {
+      components: {
+        Article: "article",
+        Button: "button",
+        Image: "img",
+        Input: "input",
+        Link: "a",
+        Video: "video",
+      },
+    },
+  },
+};
+```
+
 ### Scoped configuration with `overrides`
 
 ESLint configs can be scoped to include/exclude specific paths. This ensures
@@ -143,7 +183,7 @@ module.exports = {
     {
       files: ["directory/**/*.[jt]s?(x)"],
       rules: {
-        "my-rule": "off",
+        "my-rule": ["off"],
       },
     },
   ],
