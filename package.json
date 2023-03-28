@@ -18,12 +18,12 @@
     "trim-core": "node scripts/trim-core"
   },
   "dependencies": {
-    "@babel/core": "^7.21.0",
-    "@babel/eslint-parser": "^7.19.1",
+    "@babel/core": "^7.21.3",
+    "@babel/eslint-parser": "^7.21.3",
     "@rushstack/eslint-patch": "^1.2.0",
-    "@typescript-eslint/eslint-plugin": "^5.54.1",
-    "@typescript-eslint/parser": "^5.54.1",
-    "eslint-config-prettier": "^8.7.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -42,7 +42,7 @@
     "eslint": ">=8",
     "prettier": ">=2",
     "tailwindcss": ">=3",
-    "typescript": ">=4"
+    "typescript": ">=4 || >=5"
   },
   "peerDependenciesMeta": {
     "eslint": {
@@ -59,19 +59,19 @@
     }
   },
   "optionalDependencies": {
-    "@next/eslint-plugin-next": "^13.2.4",
-    "eslint-plugin-jest": "^27.2.1",
-    "eslint-plugin-playwright": "^0.12.0",
-    "eslint-plugin-tailwindcss": "^3.10.1",
-    "eslint-plugin-testing-library": "^5.10.2"
+    "@next/eslint-plugin-next": "^13",
+    "eslint-plugin-jest": "^27",
+    "eslint-plugin-playwright": "^0",
+    "eslint-plugin-tailwindcss": "^3",
+    "eslint-plugin-testing-library": "^5"
   },
   "devDependencies": {
-    "@types/eslint": "^8.21.1",
-    "@types/node": "^18.15.0",
+    "@types/eslint": "^8.21.3",
+    "@types/node": "^18.15.10",
     "@types/prettier": "^2.7.2",
-    "eslint": "^8.35.0",
-    "prettier": "^2.8.4",
-    "typescript": "^4.9.5"
+    "eslint": "^8.36.0",
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.2"
   },
   "keywords": [
     "eslint-config",
