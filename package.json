@@ -1,7 +1,7 @@
 {
   "name": "@strangelovelabs/style-guide",
   "description": "ESLint and Prettier style guide for various Strangelove projects 🤙",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "author": "Griko Nibras <griko@strange.love>",
   "repository": "https://github.com/strangelove-ventures/style-guide",
   "homepage": "https://github.com/strangelove-ventures/style-guide",
