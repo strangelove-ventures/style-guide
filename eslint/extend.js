@@ -56,4 +56,6 @@ module.exports = (configNames = [], extraConfig = {}) => {
       },
     };
   }
+
+  return config;
 };
