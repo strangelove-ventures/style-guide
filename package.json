@@ -15,7 +15,8 @@
   "sideEffects": false,
   "scripts": {
     "lint": "eslint --fix \"**/*.js\"",
-    "trim-core": "node scripts/trim-core"
+    "prepare:core": "node scripts/prepare-core",
+    "prepare:github": "node scripts/prepare-github"
   },
   "dependencies": {
     "@babel/core": "^7.21.3",

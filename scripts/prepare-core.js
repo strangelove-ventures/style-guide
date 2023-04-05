@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-// @ts-check
 
 const childProcess = require("node:child_process");
 const fs = require("node:fs/promises");
@@ -7,8 +6,8 @@ const fs = require("node:fs/promises");
 const packageJson = require("../package.json");
 const { readPackageManager } = require("../eslint/utils/package-manager");
 
-const trimCore = async () => {
-  packageJson.name = "@strangelovelabs/style-guide-core";
+const prepareCore = async () => {
+  packageJson.name = packageJson.name.replace(/style-guide$/, "style-guide-core");
 
   const depsToDelete = {
     dependencies: ["eslint-plugin-jsx-a11y", "eslint-plugin-react", "eslint-plugin-react-hooks"],
@@ -36,4 +35,4 @@ const trimCore = async () => {
   await fs.unlink("./README.core.md");
 };
 
-void trimCore();
+void prepareCore();
