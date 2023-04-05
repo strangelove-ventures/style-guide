@@ -12,7 +12,7 @@ const prepareGitHub = async () => {
     registry: "https://npm.pkg.github.com",
   };
 
-  await fs.writeFile("./package.json", JSON.stringify(packageJson, null, 2));
+  await fs.writeFile("./package.json", `${JSON.stringify(packageJson, null, 2)}\n`);
 };
 
 void prepareGitHub();

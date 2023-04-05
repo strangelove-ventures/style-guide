@@ -22,7 +22,7 @@ const prepareCore = async () => {
     }
   }
 
-  await fs.writeFile("./package.json", JSON.stringify(packageJson, null, 2));
+  await fs.writeFile("./package.json", `${JSON.stringify(packageJson, null, 2)}\n`);
 
   const packageManager = readPackageManager();
   const command = packageManager === "yarn" ? "add" : "install";
