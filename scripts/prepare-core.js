@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
-const childProcess = require("child_process");
 const fs = require("fs/promises");
 
 const packageJson = require("../package.json");
-const { readPackageManager } = require("../eslint/utils/package-manager");
 
 const prepareCore = async () => {
   packageJson.name = packageJson.name.replace(/style-guide$/, "style-guide-core");
@@ -23,13 +21,6 @@ const prepareCore = async () => {
   }
 
   await fs.writeFile("./package.json", `${JSON.stringify(packageJson, null, 2)}\n`);
-
-  const packageManager = readPackageManager();
-  const command = packageManager === "yarn" ? "add" : "install";
-
-  const c1 = childProcess.spawnSync(packageManager, [command]);
-  process.stdout.write(c1.stdout.toString());
-  process.stderr.write(c1.stderr.toString());
 
   await fs.copyFile("./README.core.md", "./README.md");
   await fs.unlink("./README.core.md");
