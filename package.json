@@ -10,14 +10,11 @@
     "eslint/**/*.js",
     "prettier/**/*.js",
     "tsconfig/*.json",
-    "*.json"
+    "*.json",
+    "index.js",
+    "index.d.ts"
   ],
   "sideEffects": false,
-  "scripts": {
-    "lint": "eslint --fix \"**/*.js\"",
-    "prepare:core": "node scripts/prepare-core",
-    "prepare:github": "node scripts/prepare-github"
-  },
   "dependencies": {
     "@babel/core": "^7.21.4",
     "@babel/eslint-parser": "^7.21.3",

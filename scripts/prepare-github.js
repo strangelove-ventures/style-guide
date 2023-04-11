@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const fs = require("node:fs/promises");
+const fs = require("fs/promises");
 
 const packageJson = require("../package.json");
 

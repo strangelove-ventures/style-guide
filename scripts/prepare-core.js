@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const childProcess = require("node:child_process");
-const fs = require("node:fs/promises");
+const childProcess = require("child_process");
+const fs = require("fs/promises");
 
 const packageJson = require("../package.json");
 const { readPackageManager } = require("../eslint/utils/package-manager");

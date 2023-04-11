@@ -1,24 +1,22 @@
 // @ts-check
 
-const { getTsconfigPath } = require("./utils/tsconfig");
-
 /**
  * @typedef EslintConfigName
- * @type {"base" | "browser-node" | "config-authoring" | "jest" | "next" | "node" | "playwright-test" | "react" | "tailwindcss" | "tsup" | "typescript"}
+ * @type {"base"|"browser-node"|"browser"|"config-authoring"|"jest"|"next"|"node"|"playwright-test"|"react"|"tailwindcss"|"tsup"|"typescript"}
  */
 
 /**
  * @param {EslintConfigName[]} configNames
  * @param {import("eslint").Linter.Config} extraConfig
  */
-module.exports = (configNames = [], extraConfig = {}) => {
+const extendEslint = (configNames = [], extraConfig = {}) => {
   /** @type {import("eslint").Linter.Config} */
   const config = { ...extraConfig };
 
   /** @type {import("eslint").Linter.Config["extends"]} */
   const newExtends = [];
   configNames.forEach((name) => {
-    require.resolve(`@strangelovelabs/style-guide/eslint/${name}`);
+    require.resolve(`./eslint/${name}`);
   });
   if (typeof extraConfig.extends === "string") {
     newExtends.push(extraConfig.extends);
@@ -27,7 +25,7 @@ module.exports = (configNames = [], extraConfig = {}) => {
     newExtends.push(...extraConfig.extends);
   }
   config.extends = configNames.map((name) => {
-    return require.resolve(`@strangelovelabs/style-guide/eslint/${name}`);
+    return require.resolve(`./eslint/${name}`);
   });
 
   /** @type {import("eslint").Linter.Config["ignorePatterns"]} */
@@ -41,6 +39,8 @@ module.exports = (configNames = [], extraConfig = {}) => {
   config.ignorePatterns = newIgnorePatterns;
 
   if (configNames.includes("typescript")) {
+    const { getTsconfigPath } = require("./eslint/utils/tsconfig");
+
     config.parserOptions = {
       ...config.parserOptions,
       project: getTsconfigPath(),
@@ -58,4 +58,18 @@ module.exports = (configNames = [], extraConfig = {}) => {
   }
 
   return config;
+};
+
+/**
+ * @param {import("prettier").Config} config
+ * @returns {import("prettier").Config}
+ */
+const extendPrettier = (config = {}) => {
+  const merge = require("lodash.merge");
+  return merge(require("./prettier"), config);
+};
+
+module.exports = {
+  extendEslint,
+  extendPrettier,
 };
