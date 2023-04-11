@@ -85,10 +85,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "eslintConfig": {
-    "extends": "./eslint/config-authoring",
-    "root": true
-  },
   "prettier": "./prettier",
   "license": "MPL"
 }
