@@ -12,7 +12,7 @@
     "tsconfig/*.json",
     "*.json",
     "index.js",
-    "index.d.ts"
+    "**/*.d.ts"
   ],
   "sideEffects": false,
   "dependencies": {
