@@ -16,11 +16,11 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "@babel/core": "^7.21.4",
+    "@babel/core": "^7.21.5",
     "@babel/eslint-parser": "^7.21.3",
     "@rushstack/eslint-patch": "^1.2.0",
-    "@typescript-eslint/eslint-plugin": "^5.58.0",
-    "@typescript-eslint/parser": "^5.58.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-typescript": "^3.5.5",
@@ -34,7 +34,8 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-tsdoc": "^0.2.17",
     "eslint-plugin-unicorn": "^46.0.0",
-    "eslint-plugin-unused-imports": "^2.0.0"
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "tailwindcss": "^3.3.2"
   },
   "peerDependencies": {
     "eslint": ">=8",
@@ -57,18 +58,18 @@
     }
   },
   "optionalDependencies": {
-    "@next/eslint-plugin-next": "^13.3.0",
+    "@next/eslint-plugin-next": "^13.3.2",
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-playwright": "^0.12.0",
     "eslint-plugin-tailwindcss": "^3.11.0",
-    "eslint-plugin-testing-library": "^5.10.2"
+    "eslint-plugin-testing-library": "^5.10.3"
   },
   "devDependencies": {
     "@types/eslint": "^8.37.0",
-    "@types/node": "^18.15.11",
+    "@types/node": "^18.16.3",
     "@types/prettier": "^2.7.2",
-    "eslint": "^8.38.0",
-    "prettier": "^2.8.7",
+    "eslint": "^8.39.0",
+    "prettier": "^2.8.8",
     "typescript": "^5.0.4"
   },
   "keywords": [
