@@ -7,5 +7,10 @@
   },
   "eslint.packageManager": "pnpm",
   "eslint.validate": ["javascript", "typescript"],
-  "npm.packageManager": "pnpm"
+  "npm.packageManager": "pnpm",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#29302A",
+    "statusBar.background": "#29302A",
+    "titleBar.activeBackground": "#29302A",
+  }
 }
