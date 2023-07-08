@@ -17,7 +17,7 @@
   "scripts": {
     "mod:core": "node scripts/prepare-core.js",
     "mod:github": "node scripts/prepare-github.js",
-    "mod:typedefs": "node scripts/prepare-github.js",
+    "mod:typedefs": "node scripts/update-eslint-typedefs.mjs",
     "prepublish": "pnpm run mod:typedefs",
     "release": "./release"
   },
