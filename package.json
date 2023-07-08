@@ -14,6 +14,13 @@
     "index.js",
     "**/*.d.ts"
   ],
+  "scripts": {
+    "mod:core": "node scripts/prepare-core.js",
+    "mod:github": "node scripts/prepare-github.js",
+    "mod:typedefs": "node scripts/prepare-github.js",
+    "prepublish": "pnpm run mod:typedefs",
+    "release": "./release"
+  },
   "sideEffects": false,
   "dependencies": {
     "@babel/core": "^7.22.8",
